@@ -2,6 +2,7 @@ from django.core.context_processors import csrf
 from django.shortcuts import render_to_response, redirect
 from models import Page, Edit
 
+
 def index(request):
     all_pages = Page.objects.extra(order_by=['title'])
     return render_to_response('wiki/index.html', {'all_pages': all_pages})
@@ -30,8 +31,9 @@ def edit(request, title):
 
 def log(request, title=None):
     if title is None:
-        all_edits = Edit.objects.extra(order_by=['-date_created'])
+        all_edits = Edit.objects.all()
     else:
         all_edits = Edit.objects.filter(page__title=title)
+    all_edits = all_edits.extra(order_by=['-date_created'])
     return render_to_response('wiki/log.html', {'all_edits': all_edits})
 
