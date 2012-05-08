@@ -13,7 +13,11 @@ def normalize_title(title):
     'human body / parts'
     >>> normalize_title('HumanBody /Parts')
     'human body / parts'
+    >>> normalize_title(None) is None
+    True
     """
+    if title is None:
+        return None
     title = re.sub(r'[_-]', ' ', title)
     camel = re.compile('([A-Z][A-Z][a-z])|([a-z][A-Z])')
     title = camel.sub(lambda m: m.group()[:1] + " " + m.group()[1:], title)
