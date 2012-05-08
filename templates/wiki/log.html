@@ -1,0 +1,10 @@
+<a href="/wiki/">index</a>
+{% if all_edits %}
+<ul>
+    {% for edit in all_edits %}
+    <li>
+    {{ edit.comment }}<br />
+    -- <a href="/wiki/{{ edit.page.title }}">{{ edit.page.title }}</a> on {{ edit.date_created }}</li>
+    {% endfor %}
+</ul>
+{% endif %}

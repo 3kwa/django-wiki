@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <title>{{ page.title }}</title>
+</head>
+<body>
+    <a href="/wiki">index</a>
+    <a href="/wiki/{{ page.title }}/edit">edit</a>
+    <a href="/wiki/{{ page.title }}/log">log</a>
+    <div>
+        {{ page.html|safe }}
+    </div>
+</body>
+</html>

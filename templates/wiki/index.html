@@ -1,0 +1,11 @@
+{% if all_pages %}
+<a href="/wiki/log">log</a>
+<ul>
+    {% for page in all_pages %}
+    <li><a href="/wiki/{{ page.title }}/">{{ page.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+I'm a virgin! Touched for the very first time ... want to create a page? Type
+its title in the URL after wiki/
+{%endif %}

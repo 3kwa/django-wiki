@@ -1,0 +1,8 @@
+<form action="/wiki/{{ title }}/save/" method="POST">
+    {% csrf_token %}
+    <label for="body">body:</label><br />
+    <textarea id="body" name="body" rows="10" cols="30">{{ body }}</textarea><br />
+    <label for="comment">comment:</label><br />
+    <textarea id="comment" name="comment" rows="3" cols="30"></textarea><br />
+    <input type="submit" name="save" />
+</form>
